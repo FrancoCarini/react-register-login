@@ -23,10 +23,16 @@ function App() {
         <Route path="unauthorized" element={<Unauthorized />} />
 
         {/* protected routes */}
-        <Route element={<RequireAuth />}>
+        <Route element={<RequireAuth allowedRoles={["user", "admin"]} />}>
           <Route path="/" element={<Home />} />
+        </Route>
+        <Route element={<RequireAuth allowedRoles={["user", "admin"]} />}>
           <Route path="lounge" element={<Lounge />} />
+        </Route>
+        <Route element={<RequireAuth allowedRoles={["admin"]} />}>
           <Route path="admin" element={<Admin />} />
+        </Route>
+        <Route element={<RequireAuth allowedRoles={["user"]} />}>
           <Route path="user" element={<User />} />
         </Route>
 
