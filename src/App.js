@@ -1,9 +1,16 @@
+import { Routes, Route } from "react-router-dom"
+
+import Layout from "./components/Layout"
+import Register from "./components/Register"
+
 function App() {
   return (
-    <div className="App">
-      Test
-    </div>
-  );
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route path="register" element={<Register />} />
+      </Route>
+    </Routes>
+  )
 }
 
-export default App;
+export default App
